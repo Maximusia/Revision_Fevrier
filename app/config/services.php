@@ -85,6 +85,9 @@ if (Debugger::$showBar === true && php_sapi_name() !== 'cli') {
 // SQLite Example:
 // $dsn = 'sqlite:' . $config['database']['file_path'];
 
+// Postgres Example:
+$dsn = 'pgsql:host=' . $config['database']['host'] . ';port=' . $config['database']['port'] . ';dbname=' . $config['database']['dbname'] . ';charset=utf8';
+$pdo = new PDO($dsn, $config['database']['user'] ?? null, $config['database']['password']);
 // Register Flight::db() service
 // In development, use PdoQueryCapture to log queries; in production, use PdoWrapper for performance.
 // $pdoClass = Debugger::$showBar === true ? PdoQueryCapture::class : PdoWrapper::class;
